@@ -7,10 +7,14 @@ export const Form = () => {
 
   const handleSumbit = (e) => {
     e.preventDefault();
+    setIsName('');
+    setIsEmail('');
+    setIsMessage('');
   };
 
   return (
     <form onSubmit={handleSumbit}>
+      <br/>
       <label htmlFor="name">Name *</label>
       <br/>
       <input
