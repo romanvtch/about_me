@@ -27,6 +27,41 @@ function App() {
     setIsOpenAbout(!isOpenAbout);
   };
 
+  const skills = [
+    { title: "HTML", level: "Advanced", progressLength: "85%" },
+    { title: "CSS, SCSS", level: "Advanced", progressLength: "85%" },
+    { title: "JavaScript", level: "Regular", progressLength: "65%" },
+    { title: "React, React Hooks", level: "Regular", progressLength: "50%" },
+    { title: "UI design in Figma", level: "Regular", progressLength: "65%" },
+  ];
+
+  const caseList = [
+    {
+      dataAos: "fade-right",
+      link: "https://romanvtch.github.io/onShop/",
+      image: "https://i.ibb.co/28yQp1Y/sneakers.jpg",
+      title: "React Shop",
+      subtitle: "Online shoe store",
+      number: "01",
+    },
+    {
+      dataAos: "fade-left",
+      link: "https://bestcars.rent/",
+      image: "https://i.ibb.co/RHnsWnk/best-cars.png",
+      title: "BestCars",
+      subtitle: "Rent car and drivers",
+      number: "02",
+    },
+    {
+      dataAos: "fade-right",
+      link: '"https://pozniakova.shop/papir.html',
+      image: "https://i.ibb.co/CVZPSbG/wq.jpg",
+      title: "Pozniakova Catalog",
+      subtitle: "Cookies and sweet paper",
+      number: "03",
+    },
+  ];
+
   return (
     <div className={"wrapper " + (isSwitchColor ? "light" : "")}>
       <div data-aos="fade-left" data-aos-duration="500">
@@ -264,43 +299,13 @@ function App() {
               </div>
 
               <ul className="case__studies">
-                <li className="case__list">
-                  <div data-aos="fade-right" data-aos-duration="500">
-                    <Case
-                      link={"https://romanvtch.github.io/onShop/"}
-                      image={
-                        "https://media-1obl-ru.storage.yandexcloud.net/resize_cache/811683/e71ad92e8a086fd0ad26a63a20c0e003/iblock/05f/05f2556ff310519bdac14965b63732ef.jpg"
-                      }
-                      title={"React Shop"}
-                      subtitle={"Online shoe store"}
-                      number={"01"}
-                    />
-                  </div>
-                </li>
-
-                <li className="case__list">
-                  <div data-aos="fade-left" data-aos-duration="500">
-                    <Case
-                      link={"https://bestcars.rent/"}
-                      image={"https://i.ibb.co/RHnsWnk/best-cars.png"}
-                      title={"BestCars"}
-                      subtitle={"Rent car and drivers"}
-                      number={"02"}
-                    />
-                  </div>
-                </li>
-
-                <li className="case__list">
-                  <div data-aos="fade-right" data-aos-duration="500">
-                    <Case
-                      link={"https://pozniakova.shop/papir.html"}
-                      image={"https://i.ibb.co/CVZPSbG/wq.jpg"}
-                      title={"Pozniakova Catalog"}
-                      subtitle={"Cookies and sweet paper"}
-                      number={"03"}
-                    />
-                  </div>
-                </li>
+                {caseList.map((caseItem) => (
+                  <li key={caseItem.title} className="case__list">
+                    <div data-aos={caseItem.dataAos} data-aos-duration="500">
+                      <Case {...caseItem} />
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
           </section>
@@ -309,48 +314,21 @@ function App() {
             <div className="section__container">
               <div className="case__text">
                 <p>MY STACK</p>
-                <h1 style={{ color: "#fff" }}>Technologies</h1>
+                <h1>Technologies</h1>
               </div>
+
               <ul className="progress__container">
-                <li>
-                  <ProgressBar
-                    title="HTML"
-                    level="Advanced"
-                    progressLength="85%"
-                  />
-                </li>
-                <li>
-                  <ProgressBar
-                    title="CSS, SCSS"
-                    level="Advanced"
-                    progressLength="85%"
-                  />
-                </li>
-                <li>
-                  <ProgressBar
-                    title="JavaScript"
-                    level="Regular"
-                    progressLength="70%"
-                  />
-                </li>
-                <li>
-                  <ProgressBar
-                    title="UI design in Figma"
-                    level="Regular"
-                    progressLength="65%"
-                  />
-                </li>
-                <li>
-                  <ProgressBar
-                    title="React,React Hooks"
-                    level="Regular"
-                    progressLength="50%"
-                  />
-                </li>
+                {skills.map((skill) => (
+                  <li key={skill.title}>
+                    <ProgressBar {...skill} />
+                  </li>
+                ))}
               </ul>
 
-              <div className="addionTech">
+              <div className="tech__container">
                 <h2>Additional technologies and skills</h2>
+
+                <div className="tech"></div>
               </div>
             </div>
           </section>

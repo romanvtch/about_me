@@ -33,8 +33,7 @@ export const ProgressBar = ({title, level, progressLength }) => {
     </div>
     <div
       className={`progress ${isShowProgress ? "show-before" : ""}`}
-      style={{ "--progressLength": progressLength }}
-    ></div>
+      style={{ "--progressLength": progressLength }}><h4>{progressLength}</h4></div>
     </>
   );
 };
