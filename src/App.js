@@ -13,10 +13,11 @@ function App() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isOpenAbout, setIsOpenAbout] = useState(false);
 
+
   useEffect(() => {
     AOS.init();
   }, []);
-
+  
   const scrollToTop = () => {
     scroll.scrollToTop();
   };
@@ -292,7 +293,9 @@ function App() {
               </div>
 
               <Link to="sectionTwo" smooth={true} duration={700}>
-                <div className={"one__goNext " + (isOpenAbout ? "opacity" : "")}>
+                <div
+                  className={"one__goNext " + (isOpenAbout ? "opacity" : "")}
+                >
                   <p className="one__nextLabel">Works</p>
                   <div className="one__arrowNext"></div>
                 </div>
